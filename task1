@@ -1,0 +1,27 @@
+// Задача 19
+// Напишите программу, которая принимает на вход пятизначное число 
+// и проверяет, является ли оно палиндромом.
+// 14212 -> нет
+// 12821 -> да
+// 23432 -> да
+
+Console.WriteLine("Введите 5-значное число: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+// добираемся до единиц, десятков, десятков тысяч и сотен тысяч 
+
+int numUnits = num % 10;
+int numTens = num / 10 % 10;
+int tensThousands = num / 1000 % 10;
+int hundredsThousands = num / 10000;
+
+// проверка правильности нахождения разрядов в числе 
+
+Console.WriteLine($"{numUnits}, {numTens}, {tensThousands}, {hundredsThousands}");
+
+// логика нахождения палиндрома
+
+if (numUnits == hundredsThousands && numTens == tensThousands)
+    Console.WriteLine("да");
+else
+    Console.WriteLine("нет");
